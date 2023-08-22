@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/cutom_widget/bulb_icon.dart';
+import 'package:quiz_app/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,10 +13,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Quiz App',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFFB933)),
         useMaterial3: true,
       ),
-      home: BulbIcon(),
+      home: LoginPage(),
     );
   }
 }

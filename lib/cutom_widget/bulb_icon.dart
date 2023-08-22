@@ -4,20 +4,23 @@ class BulbIcon extends StatelessWidget {
   const BulbIcon(
       {super.key,
       this.color = Colors.black,
+      this.backgroundColor,
       this.circleRadius = 10.0,
-      this.lineHeight = 100.0});
+      this.lineHeight});
 
   final Color color;
+  final Color? backgroundColor;
   final double circleRadius;
-  final double lineHeight;
+  final double? lineHeight;
 
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: backgroundColor,
       child: Column(children: [
         Container(
           width: 1.0,
-          height: lineHeight,
+          height: lineHeight ?? MediaQuery.of(context).size.height * 0.2,
           decoration: BoxDecoration(color: color),
         ),
         Container(

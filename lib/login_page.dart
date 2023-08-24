@@ -22,27 +22,41 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: BoxDecoration(
                     color: Colors.amber,
                     borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(screenSize.width * 0.05),
-                        bottomRight: Radius.circular(screenSize.width * 0.05))),
-                padding: EdgeInsets.fromLTRB(screenSize.width * 0.1, 0,
-                    screenSize.width * 0.1, screenSize.width * 0.1),
+                        bottomLeft: Radius.circular(screenSize.height * 0.03),
+                        bottomRight:
+                            Radius.circular(screenSize.height * 0.03))),
+                padding: EdgeInsets.fromLTRB(screenSize.height * 0.05, 0,
+                    screenSize.height * 0.05, screenSize.height * 0.05),
                 child: Column(
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
+                        Expanded(
+                          child: SizedBox(),
+                          flex: 5,
+                        ),
                         Text(
                           "Sign In",
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: screenSize.width * 0.08),
+                              fontSize: screenSize.height * 0.05),
+                        ),
+                        Expanded(
+                          child: SizedBox(),
+                          flex: 3,
                         ),
                         BulbIcon(
                           backgroundColor: Colors.amber,
                           color: Colors.white,
+                          lineHeight: screenSize.height * 0.25,
                         ),
+                        Expanded(flex: 2, child: SizedBox()),
                       ],
+                    ),
+                    SizedBox(
+                      height: 10,
                     ),
                     Form(
                         child: Column(
@@ -52,35 +66,45 @@ class _LoginPageState extends State<LoginPage> {
                           "E Mail",
                           style: TextStyle(color: Colors.white),
                         ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        SizedBox(
+                          height: screenSize.height * 0.08,
+                          child: TextFormField(
+                            style: TextStyle(
+                                color: Colors.amber,
+                                fontSize: screenSize.height * 0.03),
+                          ),
+                        ),
+                        Text(
+                          "Password",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
                         TextFormField(
                           style: TextStyle(
                               color: Colors.amber,
                               fontSize: screenSize.width * 0.05),
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.fromLTRB(
-                              screenSize.width * 0.05,
-                              0,
-                              screenSize.width * 0.05,
-                              0,
-                            ),
-                            filled: true,
-                            fillColor: Colors.white,
-                            border: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xFCF0C9)),
-                                borderRadius: BorderRadius.all(
-                                    Radius.circular(screenSize.width * 0.03))),
-                          ),
                         ),
                       ],
                     ))
                   ],
                 ),
               ),
+              SizedBox(
+                height: 20,
+              ),
               ElevatedButton(onPressed: () {}, child: Text("Sign In")),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  IconButton(onPressed: () {}, icon: Icon(Icons.facebook)),
+                  IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons
+                          .facebook)), //<a href="https://www.flaticon.com/free-icons/google" title="google icons">Google icons created by Freepik - Flaticon</a>
                   IconButton(onPressed: () {}, icon: Icon(Icons.facebook))
                 ],
               )

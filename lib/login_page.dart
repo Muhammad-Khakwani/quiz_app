@@ -41,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
                           "Sign In",
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: screenSize.height * 0.05),
+                              fontSize: screenSize.height * 0.045),
                         ),
                         Expanded(
                           child: SizedBox(),
@@ -84,10 +84,15 @@ class _LoginPageState extends State<LoginPage> {
                         SizedBox(
                           height: 5,
                         ),
-                        TextFormField(
-                          style: TextStyle(
-                              color: Colors.amber,
-                              fontSize: screenSize.width * 0.05),
+                        SizedBox(
+                          height: screenSize.height * 0.08,
+                          child: TextFormField(
+                            obscureText: true,
+                            autocorrect: false,
+                            style: TextStyle(
+                                color: Colors.amber,
+                                fontSize: screenSize.height * 0.03),
+                          ),
                         ),
                       ],
                     ))
@@ -97,15 +102,46 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 height: 20,
               ),
-              ElevatedButton(onPressed: () {}, child: Text("Sign In")),
+              SizedBox(
+                  height: screenSize.height * 0.07,
+                  width: screenSize.width * 0.85,
+                  child: ElevatedButton(
+                      onPressed: () {},
+                      child: Text(
+                        "Sign In",
+                        style: TextStyle(fontSize: screenSize.height * 0.025),
+                      ))),
+              SizedBox(
+                height: 20,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons
-                          .facebook)), //<a href="https://www.flaticon.com/free-icons/google" title="google icons">Google icons created by Freepik - Flaticon</a>
-                  IconButton(onPressed: () {}, icon: Icon(Icons.facebook))
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      width: screenSize.height * 0.04,
+                      height: screenSize.height * 0.04,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage("assets/google.png")),
+                          shape: BoxShape.circle),
+                    ), //<a href="https://www.flaticon.com/free-icons/google" title="google icons">Google icons created by Freepik - Flaticon</a>
+                  ),
+                  SizedBox(
+                    width: screenSize.height * 0.02,
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      width: screenSize.height * 0.04,
+                      height: screenSize.height * 0.04,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage("assets/facebook.png")),
+                          shape: BoxShape.circle),
+                    ), //<a href="https://www.flaticon.com/free-icons/facebook" title="facebook icons">Facebook icons created by Freepik - Flaticon</a>
+                  ),
                 ],
               )
             ],

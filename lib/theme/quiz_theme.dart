@@ -23,9 +23,11 @@ class QuizTheme {
               borderSide: BorderSide.none,
               borderRadius: BorderRadius.all(Radius.circular(8)))),
       elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ButtonStyle(
-        backgroundColor: MaterialStatePropertyAll(primaryColor),
-        foregroundColor: MaterialStatePropertyAll(Colors.white),
+          style: ElevatedButton.styleFrom(
+        backgroundColor: primaryColor,
+        foregroundColor: Colors.white,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(8))),
       )),
     );
   }

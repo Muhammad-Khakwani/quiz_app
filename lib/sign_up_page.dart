@@ -35,170 +35,178 @@ class _SignUpPageState extends State<SignUpPage> {
 
     return Material(
       child: SafeArea(
-        child: Center(
-          child: Column(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                    color: primaryColor,
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(screenSize.height * 0.03),
-                        bottomRight:
-                            Radius.circular(screenSize.height * 0.03))),
-                padding: EdgeInsets.fromLTRB(screenSize.height * 0.05, 0,
-                    screenSize.height * 0.05, screenSize.height * 0.02),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        const Expanded(
-                          flex: 5,
-                          child: SizedBox(),
-                        ),
-                        Text(
-                          "Sign Up",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: screenSize.height * 0.045),
-                        ),
-                        const Expanded(
-                          flex: 3,
-                          child: SizedBox(),
-                        ),
-                        BulbIcon(
-                          color: Colors.white,
-                          lineHeight: screenSize.height * 0.2,
-                        ),
-                        const Expanded(flex: 2, child: SizedBox()),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Form(
-                        key: _formKey,
-                        child: Column(
-                          children: [
-                            CustomTextFormFeild(
-                              title: "Name",
-                              controller: _nameController,
-                            ),
-                            CustomTextFormFeild(
-                              title: "E Mail",
-                              controller: _emailController,
-                            ),
-                            const SizedBox(),
-                            CustomTextFormFeild(
-                              title: "Password",
-                              controller: _passwordController,
-                              obscureText: true,
-                            )
-                          ],
-                        ))
-                  ],
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                      color: primaryColor,
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(screenSize.height * 0.03),
+                          bottomRight:
+                              Radius.circular(screenSize.height * 0.03))),
+                  padding: EdgeInsets.fromLTRB(screenSize.height * 0.05, 0,
+                      screenSize.height * 0.05, screenSize.height * 0.02),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          const Expanded(
+                            flex: 5,
+                            child: SizedBox(),
+                          ),
+                          Text(
+                            "Sign Up",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: screenSize.height * 0.045),
+                          ),
+                          const Expanded(
+                            flex: 3,
+                            child: SizedBox(),
+                          ),
+                          BulbIcon(
+                            color: Colors.white,
+                            lineHeight: screenSize.height * 0.2,
+                          ),
+                          const Expanded(flex: 2, child: SizedBox()),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Form(
+                          key: _formKey,
+                          child: Column(
+                            children: [
+                              CustomTextFormFeild(
+                                title: "Name",
+                                controller: _nameController,
+                              ),
+                              CustomTextFormFeild(
+                                title: "E Mail",
+                                controller: _emailController,
+                              ),
+                              const SizedBox(),
+                              CustomTextFormFeild(
+                                title: "Password",
+                                controller: _passwordController,
+                                obscureText: true,
+                              )
+                            ],
+                          ))
+                    ],
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 2),
-                child: Row(
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 2),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                          onPressed: () {
+                            setState(() {
+                              isChecked = !isChecked;
+                            });
+                          },
+                          icon: Icon(
+                            isChecked
+                                ? Icons.check_box_outlined
+                                : Icons.check_box_outline_blank,
+                            color: primaryColor,
+                          )),
+                      RichText(
+                        text: TextSpan(
+                            text: "I Accept ",
+                            children: [
+                              TextSpan(
+                                  text: "Terms and Condition",
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {},
+                                  style: TextStyle(
+                                      color: primaryColor,
+                                      decoration: TextDecoration.underline))
+                            ],
+                            recognizer: TapGestureRecognizer()..onTap = () {},
+                            style: const TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold)),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                    height: screenSize.height * 0.07,
+                    width: screenSize.width * 0.85,
+                    child: ElevatedButton(
+                        onPressed: isChecked
+                            ? () {
+                                _signup();
+                              }
+                            : null,
+                        child: Text(
+                          "Sign Up",
+                          style: TextStyle(fontSize: screenSize.height * 0.025),
+                        ))),
+                Text(
+                  !isChecked ? "Accept Terms and Condition to Continue" : "",
+                  style: TextStyle(color: const Color(0xFFFF3838)),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    IconButton(
-                        onPressed: () {
-                          setState(() {
-                            isChecked = !isChecked;
-                          });
-                        },
-                        icon: Icon(
-                          isChecked
-                              ? Icons.check_box_outlined
-                              : Icons.check_box_outline_blank,
-                          color: primaryColor,
-                        )),
-                    RichText(
-                      text: TextSpan(
-                          text: "I Accept ",
-                          children: [
-                            TextSpan(
-                                text: "Terms and Condition",
-                                recognizer: TapGestureRecognizer()
-                                  ..onTap = () {},
-                                style: TextStyle(
-                                    color: primaryColor,
-                                    decoration: TextDecoration.underline))
-                          ],
-                          recognizer: TapGestureRecognizer()..onTap = () {},
-                          style: const TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold)),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: screenSize.height * 0.04,
+                        height: screenSize.height * 0.04,
+                        decoration: const BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("assets/google.png")),
+                            shape: BoxShape.circle),
+                      ), //<a href="https://www.flaticon.com/free-icons/google" title="google icons">Google icons created by Freepik - Flaticon</a>
+                    ),
+                    SizedBox(
+                      width: screenSize.height * 0.02,
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: screenSize.height * 0.04,
+                        height: screenSize.height * 0.04,
+                        decoration: const BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("assets/facebook.png")),
+                            shape: BoxShape.circle),
+                      ), //<a href="https://www.flaticon.com/free-icons/facebook" title="facebook icons">Facebook icons created by Freepik - Flaticon</a>
                     ),
                   ],
                 ),
-              ),
-              SizedBox(
-                  height: screenSize.height * 0.07,
-                  width: screenSize.width * 0.85,
-                  child: ElevatedButton(
-                      onPressed: () {
-                        _signup();
-                      },
-                      child: Text(
-                        "Sign Up",
-                        style: TextStyle(fontSize: screenSize.height * 0.025),
-                      ))),
-              const SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      width: screenSize.height * 0.04,
-                      height: screenSize.height * 0.04,
-                      decoration: const BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage("assets/google.png")),
-                          shape: BoxShape.circle),
-                    ), //<a href="https://www.flaticon.com/free-icons/google" title="google icons">Google icons created by Freepik - Flaticon</a>
-                  ),
-                  SizedBox(
-                    width: screenSize.height * 0.02,
-                  ),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      width: screenSize.height * 0.04,
-                      height: screenSize.height * 0.04,
-                      decoration: const BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage("assets/facebook.png")),
-                          shape: BoxShape.circle),
-                    ), //<a href="https://www.flaticon.com/free-icons/facebook" title="facebook icons">Facebook icons created by Freepik - Flaticon</a>
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              RichText(
-                text: TextSpan(
-                    text: "Already a User? ",
-                    style: const TextStyle(
-                        color: Colors.black, fontWeight: FontWeight.bold),
-                    children: [
-                      TextSpan(
-                          recognizer: TapGestureRecognizer()..onTap = () {},
-                          text: "Login",
-                          style: TextStyle(
-                              color: primaryColor,
-                              decoration: TextDecoration.underline))
-                    ]),
-              ),
-            ],
+                const SizedBox(
+                  height: 10,
+                ),
+                RichText(
+                  text: TextSpan(
+                      text: "Already a User? ",
+                      style: const TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
+                      children: [
+                        TextSpan(
+                            recognizer: TapGestureRecognizer()..onTap = () {},
+                            text: "Login",
+                            style: TextStyle(
+                                color: primaryColor,
+                                decoration: TextDecoration.underline))
+                      ]),
+                ),
+              ],
+            ),
           ),
         ),
       ),

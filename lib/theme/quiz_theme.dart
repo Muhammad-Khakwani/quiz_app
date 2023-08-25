@@ -3,12 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 @immutable
 class QuizTheme {
-  const QuizTheme({
-    this.primaryColor = const Color(0xFFFFB933),
-    this.seondaryColor = const Color(0xFFF0F0F0),
-  });
+  const QuizTheme(
+      {this.primaryColor = const Color(0xFFFFB933),
+      this.seondaryColor = const Color(0xFFF0F0F0),
+      this.errorColor = const Color(0xFFFF3838)});
 
-  final Color primaryColor, seondaryColor;
+  final Color primaryColor, seondaryColor, errorColor;
 
   ThemeData toThemeData() {
     return ThemeData(
@@ -16,19 +16,23 @@ class QuizTheme {
       textTheme: GoogleFonts.robotoCondensedTextTheme(),
       appBarTheme: AppBarTheme(backgroundColor: primaryColor),
       inputDecorationTheme: InputDecorationTheme(
-          errorStyle: const TextStyle(color: Color(0xFFFF3838)),
+          errorStyle: TextStyle(color: errorColor),
           contentPadding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
           filled: true,
           fillColor: seondaryColor,
-          border: const OutlineInputBorder(
+          errorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: errorColor),
+              borderRadius: BorderRadius.circular(8)),
+          border: OutlineInputBorder(
               borderSide: BorderSide.none,
-              borderRadius: BorderRadius.all(Radius.circular(8)))),
+              borderRadius: BorderRadius.circular(8))),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
         backgroundColor: primaryColor,
         foregroundColor: Colors.white,
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8))),
+        disabledBackgroundColor: seondaryColor,
+        disabledForegroundColor: Colors.black,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       )),
     );
   }

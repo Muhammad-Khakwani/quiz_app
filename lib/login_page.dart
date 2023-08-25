@@ -80,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                               title: "E Mail",
                               controller: _emailController,
                             ),
-                            SizedBox(),
+                            const SizedBox(),
                             CustomTextFormFeild(
                               title: "Password",
                               controller: _passwordController,
@@ -92,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                       text: TextSpan(
                           text: "Forget Password?",
                           recognizer: TapGestureRecognizer()..onTap = () {},
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.white,
                               decoration: TextDecoration.underline)),
                     )
@@ -152,14 +152,14 @@ class _LoginPageState extends State<LoginPage> {
               RichText(
                 text: TextSpan(
                     text: "Need an Account? ",
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.black, fontWeight: FontWeight.bold),
                     children: [
                       TextSpan(
                           recognizer: TapGestureRecognizer()..onTap = () {},
                           text: "Sign Up",
-                          style: TextStyle(
-                              color: const Color(0xFFFFB933),
+                          style: const TextStyle(
+                              color: Color(0xFFFFB933),
                               decoration: TextDecoration.underline))
                     ]),
               ),

@@ -3,22 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/cutom_widget/bulb_icon.dart';
 import 'package:quiz_app/cutom_widget/custom_text_feild.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
   // Global key for validating the form
   final _formKey = GlobalKey<FormState>();
 
   // Controllers for the text form fields
+  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  _login() {
+  _signup() {
     if (_formKey.currentState!.validate()) {
       //Login Logic Here
     }
@@ -53,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
                           child: SizedBox(),
                         ),
                         Text(
-                          "Login",
+                          "Sign Up",
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: screenSize.height * 0.045),
@@ -77,6 +78,10 @@ class _LoginPageState extends State<LoginPage> {
                         child: Column(
                           children: [
                             CustomTextFormFeild(
+                              title: "Name",
+                              controller: _nameController,
+                            ),
+                            CustomTextFormFeild(
                               title: "E Mail",
                               controller: _emailController,
                             ),
@@ -87,15 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                               obscureText: true,
                             )
                           ],
-                        )),
-                    RichText(
-                      text: TextSpan(
-                          text: "Forget Password?",
-                          recognizer: TapGestureRecognizer()..onTap = () {},
-                          style: const TextStyle(
-                              color: Colors.white,
-                              decoration: TextDecoration.underline)),
-                    )
+                        ))
                   ],
                 ),
               ),
@@ -107,10 +104,10 @@ class _LoginPageState extends State<LoginPage> {
                   width: screenSize.width * 0.85,
                   child: ElevatedButton(
                       onPressed: () {
-                        _login();
+                        _signup();
                       },
                       child: Text(
-                        "Login",
+                        "Sign Up",
                         style: TextStyle(fontSize: screenSize.height * 0.025),
                       ))),
               const SizedBox(
@@ -151,13 +148,13 @@ class _LoginPageState extends State<LoginPage> {
               ),
               RichText(
                 text: TextSpan(
-                    text: "Need an Account? ",
+                    text: "Already a User? ",
                     style: const TextStyle(
                         color: Colors.black, fontWeight: FontWeight.bold),
                     children: [
                       TextSpan(
                           recognizer: TapGestureRecognizer()..onTap = () {},
-                          text: "Sign Up",
+                          text: "Login",
                           style: const TextStyle(
                               color: Color(0xFFFFB933),
                               decoration: TextDecoration.underline))

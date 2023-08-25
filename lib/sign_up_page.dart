@@ -19,9 +19,13 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  Color primaryColor = Color(0xFFFFB933);
+
+  bool isChecked = true;
+
   _signup() {
     if (_formKey.currentState!.validate()) {
-      //Login Logic Here
+      //Sign Up Logic Here
     }
   }
 
@@ -36,7 +40,7 @@ class _SignUpPageState extends State<SignUpPage> {
             children: [
               Container(
                 decoration: BoxDecoration(
-                    color: const Color(0xFFFFB933),
+                    color: primaryColor,
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(screenSize.height * 0.03),
                         bottomRight:
@@ -96,8 +100,42 @@ class _SignUpPageState extends State<SignUpPage> {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 20,
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 2),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          setState(() {
+                            isChecked = !isChecked;
+                          });
+                        },
+                        icon: Icon(
+                          isChecked
+                              ? Icons.check_box_outlined
+                              : Icons.check_box_outline_blank,
+                          color: primaryColor,
+                        )),
+                    RichText(
+                      text: TextSpan(
+                          text: "I Accept ",
+                          children: [
+                            TextSpan(
+                                text: "Terms and Condition",
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {},
+                                style: TextStyle(
+                                    color: primaryColor,
+                                    decoration: TextDecoration.underline))
+                          ],
+                          recognizer: TapGestureRecognizer()..onTap = () {},
+                          style: const TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold)),
+                    ),
+                  ],
+                ),
               ),
               SizedBox(
                   height: screenSize.height * 0.07,
@@ -155,8 +193,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       TextSpan(
                           recognizer: TapGestureRecognizer()..onTap = () {},
                           text: "Login",
-                          style: const TextStyle(
-                              color: Color(0xFFFFB933),
+                          style: TextStyle(
+                              color: primaryColor,
                               decoration: TextDecoration.underline))
                     ]),
               ),

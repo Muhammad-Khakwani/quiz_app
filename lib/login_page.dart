@@ -24,6 +24,8 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
+  Color primaryColor = Color(0xFFFFB933);
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -35,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               Container(
                 decoration: BoxDecoration(
-                    color: const Color(0xFFFFB933),
+                    color: primaryColor,
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(screenSize.height * 0.03),
                         bottomRight:
@@ -158,8 +160,8 @@ class _LoginPageState extends State<LoginPage> {
                       TextSpan(
                           recognizer: TapGestureRecognizer()..onTap = () {},
                           text: "Sign Up",
-                          style: const TextStyle(
-                              color: Color(0xFFFFB933),
+                          style: TextStyle(
+                              color: primaryColor,
                               decoration: TextDecoration.underline))
                     ]),
               ),

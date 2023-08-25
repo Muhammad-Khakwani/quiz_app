@@ -29,18 +29,13 @@ class _CustomTextFormFeildState extends State<CustomTextFormFeild> {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
-
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Text(
         widget.title,
         style: const TextStyle(color: Colors.white),
       ),
-      const SizedBox(
-        height: 5,
-      ),
-      SizedBox(
-        height: screenSize.height * 0.08,
+      Padding(
+        padding: const EdgeInsets.fromLTRB(0, 5, 0, 10),
         child: TextFormField(
           cursorColor: const Color(0xFFFFB933),
           controller: widget.controller,
@@ -59,9 +54,15 @@ class _CustomTextFormFeildState extends State<CustomTextFormFeild> {
                       },
                     )
                   : null),
-          style: TextStyle(
-              color: const Color(0xFFFFB933),
-              fontSize: screenSize.height * 0.03),
+          style: const TextStyle(
+            color: Color(0xFFFFB933),
+          ),
+          validator: (value) {
+            if (value!.trim().isEmpty) {
+              return "Please Enter a Value";
+            }
+            return null;
+          },
         ),
       ),
     ]);

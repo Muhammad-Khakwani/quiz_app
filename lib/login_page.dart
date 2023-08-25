@@ -18,6 +18,12 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  _login() {
+    if (_formKey.currentState!.validate()) {
+      //Login Logic Here
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -74,13 +80,22 @@ class _LoginPageState extends State<LoginPage> {
                               title: "E Mail",
                               controller: _emailController,
                             ),
+                            SizedBox(),
                             CustomTextFormFeild(
                               title: "Password",
                               controller: _passwordController,
                               obscureText: true,
                             )
                           ],
-                        ))
+                        )),
+                    RichText(
+                      text: TextSpan(
+                          text: "Forget Password?",
+                          recognizer: TapGestureRecognizer()..onTap = () {},
+                          style: TextStyle(
+                              color: Colors.white,
+                              decoration: TextDecoration.underline)),
+                    )
                   ],
                 ),
               ),
@@ -91,7 +106,9 @@ class _LoginPageState extends State<LoginPage> {
                   height: screenSize.height * 0.07,
                   width: screenSize.width * 0.85,
                   child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        _login();
+                      },
                       child: Text(
                         "Sign In",
                         style: TextStyle(fontSize: screenSize.height * 0.025),

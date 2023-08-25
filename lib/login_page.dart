@@ -53,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                           child: SizedBox(),
                         ),
                         Text(
-                          "Sign In",
+                          "Login",
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: screenSize.height * 0.045),
@@ -110,7 +110,7 @@ class _LoginPageState extends State<LoginPage> {
                         _login();
                       },
                       child: Text(
-                        "Sign In",
+                        "Login",
                         style: TextStyle(fontSize: screenSize.height * 0.025),
                       ))),
               const SizedBox(

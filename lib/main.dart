@@ -11,11 +11,11 @@ class QuizApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final quizTheme = QuizTheme();
+    const quizTheme = QuizTheme();
     return MaterialApp(
       title: 'Quiz',
       theme: quizTheme.toThemeData(),
-      home: LoginPage(),
+      home: const LoginPage(),
     );
   }
 }

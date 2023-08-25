@@ -1,5 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:quiz_app/cutom_widget/bulb_icon.dart';
+import 'package:quiz_app/cutom_widget/custom_text_feild.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -9,6 +11,13 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  // Global key for validating the form
+  final _formKey = GlobalKey<FormState>();
+
+  // Controllers for the text form fields
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -20,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               Container(
                 decoration: BoxDecoration(
-                    color: Colors.amber,
+                    color: const Color(0xFFFFB933),
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(screenSize.height * 0.03),
                         bottomRight:
@@ -33,9 +42,9 @@ class _LoginPageState extends State<LoginPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Expanded(
-                          child: SizedBox(),
+                        const Expanded(
                           flex: 5,
+                          child: SizedBox(),
                         ),
                         Text(
                           "Sign In",
@@ -43,63 +52,39 @@ class _LoginPageState extends State<LoginPage> {
                               color: Colors.white,
                               fontSize: screenSize.height * 0.045),
                         ),
-                        Expanded(
-                          child: SizedBox(),
+                        const Expanded(
                           flex: 3,
+                          child: SizedBox(),
                         ),
                         BulbIcon(
-                          backgroundColor: Colors.amber,
                           color: Colors.white,
                           lineHeight: screenSize.height * 0.25,
                         ),
-                        Expanded(flex: 2, child: SizedBox()),
+                        const Expanded(flex: 2, child: SizedBox()),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Form(
+                        key: _formKey,
                         child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "E Mail",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        SizedBox(
-                          height: screenSize.height * 0.08,
-                          child: TextFormField(
-                            style: TextStyle(
-                                color: Colors.amber,
-                                fontSize: screenSize.height * 0.03),
-                          ),
-                        ),
-                        Text(
-                          "Password",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        SizedBox(
-                          height: screenSize.height * 0.08,
-                          child: TextFormField(
-                            obscureText: true,
-                            autocorrect: false,
-                            style: TextStyle(
-                                color: Colors.amber,
-                                fontSize: screenSize.height * 0.03),
-                          ),
-                        ),
-                      ],
-                    ))
+                          children: [
+                            CustomTextFormFeild(
+                              title: "E Mail",
+                              controller: _emailController,
+                            ),
+                            CustomTextFormFeild(
+                              title: "Password",
+                              controller: _passwordController,
+                              obscureText: true,
+                            )
+                          ],
+                        ))
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               SizedBox(
@@ -111,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
                         "Sign In",
                         style: TextStyle(fontSize: screenSize.height * 0.025),
                       ))),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
@@ -122,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: Container(
                       width: screenSize.height * 0.04,
                       height: screenSize.height * 0.04,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage("assets/google.png")),
                           shape: BoxShape.circle),
@@ -136,14 +121,31 @@ class _LoginPageState extends State<LoginPage> {
                     child: Container(
                       width: screenSize.height * 0.04,
                       height: screenSize.height * 0.04,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage("assets/facebook.png")),
                           shape: BoxShape.circle),
                     ), //<a href="https://www.flaticon.com/free-icons/facebook" title="facebook icons">Facebook icons created by Freepik - Flaticon</a>
                   ),
                 ],
-              )
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              RichText(
+                text: TextSpan(
+                    text: "Need an Account? ",
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.bold),
+                    children: [
+                      TextSpan(
+                          recognizer: TapGestureRecognizer()..onTap = () {},
+                          text: "Sign Up",
+                          style: TextStyle(
+                              color: const Color(0xFFFFB933),
+                              decoration: TextDecoration.underline))
+                    ]),
+              ),
             ],
           ),
         ),

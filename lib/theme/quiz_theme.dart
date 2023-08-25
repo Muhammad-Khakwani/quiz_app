@@ -16,17 +16,18 @@ class QuizTheme {
       textTheme: GoogleFonts.robotoCondensedTextTheme(),
       appBarTheme: AppBarTheme(backgroundColor: primaryColor),
       inputDecorationTheme: InputDecorationTheme(
-          contentPadding: EdgeInsets.fromLTRB(15, 10, 15, 10),
+          errorStyle: const TextStyle(color: Color(0xFFFF3838)),
+          contentPadding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
           filled: true,
           fillColor: seondaryColor,
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
               borderSide: BorderSide.none,
               borderRadius: BorderRadius.all(Radius.circular(8)))),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
         backgroundColor: primaryColor,
         foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(8))),
       )),
     );

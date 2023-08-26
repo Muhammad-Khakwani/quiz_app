@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:quiz_app/cutom_widget/bulb_icon.dart';
 import 'package:quiz_app/cutom_widget/custom_text_feild.dart';
+import 'package:quiz_app/theme/quiz_theme.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -24,8 +25,6 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-  Color primaryColor = Color(0xFFFFB933);
-
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -38,11 +37,12 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                      color: primaryColor,
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(screenSize.height * 0.03),
-                          bottomRight:
-                              Radius.circular(screenSize.height * 0.03))),
+                    color: QuizTheme.primaryColor,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(screenSize.height * 0.03),
+                      bottomRight: Radius.circular(screenSize.height * 0.03),
+                    ),
+                  ),
                   padding: EdgeInsets.fromLTRB(screenSize.height * 0.05, 0,
                       screenSize.height * 0.05, screenSize.height * 0.02),
                   child: Column(
@@ -58,8 +58,9 @@ class _LoginPageState extends State<LoginPage> {
                           Text(
                             "Login",
                             style: TextStyle(
-                                color: Colors.white,
-                                fontSize: screenSize.height * 0.045),
+                              color: Colors.white,
+                              fontSize: screenSize.height * 0.045,
+                            ),
                           ),
                           const Expanded(
                             flex: 3,
@@ -69,35 +70,41 @@ class _LoginPageState extends State<LoginPage> {
                             color: Colors.white,
                             lineHeight: screenSize.height * 0.2,
                           ),
-                          const Expanded(flex: 2, child: SizedBox()),
+                          const Expanded(
+                            flex: 2,
+                            child: SizedBox(),
+                          ),
                         ],
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       Form(
-                          key: _formKey,
-                          child: Column(
-                            children: [
-                              CustomTextFormFeild(
-                                title: "E Mail",
-                                controller: _emailController,
-                              ),
-                              const SizedBox(),
-                              CustomTextFormFeild(
-                                title: "Password",
-                                controller: _passwordController,
-                                obscureText: true,
-                              )
-                            ],
-                          )),
+                        key: _formKey,
+                        child: Column(
+                          children: [
+                            CustomTextFormFeild(
+                              title: "E Mail",
+                              controller: _emailController,
+                            ),
+                            const SizedBox(),
+                            CustomTextFormFeild(
+                              title: "Password",
+                              controller: _passwordController,
+                              obscureText: true,
+                            )
+                          ],
+                        ),
+                      ),
                       RichText(
                         text: TextSpan(
-                            text: "Forget Password?",
-                            recognizer: TapGestureRecognizer()..onTap = () {},
-                            style: const TextStyle(
-                                color: Colors.white,
-                                decoration: TextDecoration.underline)),
+                          text: "Forget Password?",
+                          recognizer: TapGestureRecognizer()..onTap = () {},
+                          style: const TextStyle(
+                            color: Colors.white,
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
                       )
                     ],
                   ),
@@ -106,16 +113,20 @@ class _LoginPageState extends State<LoginPage> {
                   height: 20,
                 ),
                 SizedBox(
-                    height: screenSize.height * 0.07,
-                    width: screenSize.width * 0.85,
-                    child: ElevatedButton(
-                        onPressed: () {
-                          _login();
-                        },
-                        child: Text(
-                          "Login",
-                          style: TextStyle(fontSize: screenSize.height * 0.025),
-                        ))),
+                  height: screenSize.height * 0.07,
+                  width: screenSize.width * 0.85,
+                  child: TextButton(
+                    onPressed: () {
+                      _login();
+                    },
+                    child: Text(
+                      "Login",
+                      style: TextStyle(
+                        fontSize: screenSize.height * 0.025,
+                      ),
+                    ),
+                  ),
+                ),
                 const SizedBox(
                   height: 20,
                 ),
@@ -128,9 +139,11 @@ class _LoginPageState extends State<LoginPage> {
                         width: screenSize.height * 0.04,
                         height: screenSize.height * 0.04,
                         decoration: const BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage("assets/google.png")),
-                            shape: BoxShape.circle),
+                          image: DecorationImage(
+                            image: AssetImage("assets/google.png"),
+                          ),
+                          shape: BoxShape.circle,
+                        ),
                       ), //<a href="https://www.flaticon.com/free-icons/google" title="google icons">Google icons created by Freepik - Flaticon</a>
                     ),
                     SizedBox(
@@ -142,9 +155,11 @@ class _LoginPageState extends State<LoginPage> {
                         width: screenSize.height * 0.04,
                         height: screenSize.height * 0.04,
                         decoration: const BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage("assets/facebook.png")),
-                            shape: BoxShape.circle),
+                          image: DecorationImage(
+                            image: AssetImage("assets/facebook.png"),
+                          ),
+                          shape: BoxShape.circle,
+                        ),
                       ), //<a href="https://www.flaticon.com/free-icons/facebook" title="facebook icons">Facebook icons created by Freepik - Flaticon</a>
                     ),
                   ],
@@ -154,17 +169,22 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 RichText(
                   text: TextSpan(
-                      text: "Need an Account? ",
-                      style: const TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
-                      children: [
-                        TextSpan(
-                            recognizer: TapGestureRecognizer()..onTap = () {},
-                            text: "Sign Up",
-                            style: TextStyle(
-                                color: primaryColor,
-                                decoration: TextDecoration.underline))
-                      ]),
+                    text: "Need an Account? ",
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    children: [
+                      TextSpan(
+                        recognizer: TapGestureRecognizer()..onTap = () {},
+                        text: "Sign Up",
+                        style: const TextStyle(
+                          color: QuizTheme.primaryColor,
+                          decoration: TextDecoration.underline,
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ],
             ),

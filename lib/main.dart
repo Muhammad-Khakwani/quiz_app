@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/login_page.dart';
-import 'package:quiz_app/sign_up_page.dart';
+import 'package:quiz_app/cutom_widget/custom_card.dart';
+import 'package:quiz_app/home_page.dart';
 import 'package:quiz_app/theme/quiz_theme.dart';
 
 void main() {
@@ -12,11 +12,11 @@ class QuizApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const quizTheme = QuizTheme();
+    final quizTheme = QuizTheme();
     return MaterialApp(
       title: 'Quiz',
       theme: quizTheme.toThemeData(),
-      home: const SignUpPage(),
+      home: const CustomCard(),
     );
   }
 }

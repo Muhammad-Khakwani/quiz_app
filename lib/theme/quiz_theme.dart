@@ -14,6 +14,7 @@ class QuizTheme {
       appBarTheme: const AppBarTheme(
         backgroundColor: primaryColor,
         foregroundColor: Colors.white,
+        shadowColor: Colors.amber,
       ),
       inputDecorationTheme: InputDecorationTheme(
         errorStyle: const TextStyle(color: errorColor),

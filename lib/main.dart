@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/cutom_widget/custom_card.dart';
 import 'package:quiz_app/home_page.dart';
 import 'package:quiz_app/theme/quiz_theme.dart';
 
@@ -16,7 +15,7 @@ class QuizApp extends StatelessWidget {
     return MaterialApp(
       title: 'Quiz',
       theme: quizTheme.toThemeData(),
-      home: const CustomCard(),
+      home: const HomePage(),
     );
   }
 }

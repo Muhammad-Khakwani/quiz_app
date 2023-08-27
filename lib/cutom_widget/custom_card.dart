@@ -31,7 +31,7 @@ class _CustomCardState extends State<CustomCard> {
           hover = value;
         });
       },
-      hoverColor: Colors.white,
+      hoverColor: null,
       child: Container(
         height: cardSize,
         child: AspectRatio(

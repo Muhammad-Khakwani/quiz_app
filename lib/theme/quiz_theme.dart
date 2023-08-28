@@ -7,6 +7,49 @@ class QuizTheme {
   static const Color seondaryColor = Color(0xFFF0F0F0);
   static const Color errorColor = Color(0xFFFF3838);
 
+  static String initials(String text) {
+    String string = text[0].toUpperCase();
+    bool isSpace = false;
+
+    for (int i = 1; i < text.length; i++) {
+      var char = text[i];
+
+      if (isSpace) {
+        char = char.toUpperCase();
+        string += char;
+        break;
+      }
+
+      if (char == " ") {
+        isSpace = true;
+      }
+    }
+
+    return string;
+  }
+
+  static String capitalzed(String text) {
+    String string = text[0].toUpperCase();
+    bool isSpace = false;
+
+    for (int i = 1; i < text.length; i++) {
+      var char = text[i];
+
+      if (isSpace) {
+        char = char.toUpperCase();
+        isSpace = false;
+      }
+
+      if (char == " " && !isSpace) {
+        isSpace = true;
+      }
+
+      string += char;
+    }
+
+    return string;
+  }
+
   ThemeData toThemeData() {
     return ThemeData(
       useMaterial3: true,
@@ -14,7 +57,6 @@ class QuizTheme {
       appBarTheme: const AppBarTheme(
         backgroundColor: primaryColor,
         foregroundColor: Colors.white,
-        shadowColor: Colors.amber,
       ),
       inputDecorationTheme: InputDecorationTheme(
         errorStyle: const TextStyle(color: errorColor),

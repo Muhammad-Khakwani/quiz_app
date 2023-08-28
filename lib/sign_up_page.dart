@@ -2,6 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:quiz_app/cutom_widget/bulb_icon.dart';
 import 'package:quiz_app/cutom_widget/custom_text_feild.dart';
+import 'package:quiz_app/home_page.dart';
+import 'package:quiz_app/login_page.dart';
 import 'package:quiz_app/theme/quiz_theme.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -25,6 +27,12 @@ class _SignUpPageState extends State<SignUpPage> {
   _signup() {
     if (_formKey.currentState!.validate()) {
       //Sign Up Logic Here
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => HomePage(),
+        ),
+      );
     }
   }
 
@@ -217,7 +225,15 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     children: [
                       TextSpan(
-                        recognizer: TapGestureRecognizer()..onTap = () {},
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LoginPage(),
+                              ),
+                            );
+                          },
                         text: "Login",
                         style: const TextStyle(
                           color: QuizTheme.primaryColor,

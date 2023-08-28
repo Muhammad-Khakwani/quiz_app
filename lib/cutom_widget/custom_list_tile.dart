@@ -2,26 +2,41 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/theme/quiz_theme.dart';
 
 class CustomListTile extends StatelessWidget {
-  const CustomListTile({super.key});
+  const CustomListTile({
+    super.key,
+    this.circularImage,
+    required this.title,
+  });
+
+  final ImageProvider<Object>? circularImage;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(16.0),
       child: Wrap(
         crossAxisAlignment: WrapCrossAlignment.center,
         spacing: 10,
         children: [
           CircleAvatar(
-            backgroundImage: AssetImage("assets/avatar.jpg"),
+            backgroundImage: circularImage,
+            backgroundColor: (circularImage == null)
+                ? Colors.deepPurple.withOpacity(0.5)
+                : Colors.deepPurple,
+            child: (circularImage == null)
+                ? Text(
+                    QuizTheme.initials(title),
+                  )
+                : null,
             radius: screenSize.width * 0.09,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Muhammad Khan",
+                QuizTheme.capitalzed(title),
                 style: TextStyle(
                   fontSize: screenSize.width * 0.055,
                   fontWeight: FontWeight.bold,

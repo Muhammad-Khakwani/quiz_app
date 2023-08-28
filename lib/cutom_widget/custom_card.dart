@@ -5,13 +5,11 @@ class CustomCard extends StatefulWidget {
   const CustomCard({
     super.key,
     required this.text,
-    required this.cardSize,
     required this.icon,
   });
 
   final String text;
   final IconData icon;
-  final double cardSize;
 
   @override
   State<CustomCard> createState() => _CustomCardState();
@@ -22,7 +20,7 @@ class _CustomCardState extends State<CustomCard> {
 
   @override
   Widget build(BuildContext context) {
-    double cardSize = widget.cardSize;
+    double cardSize = MediaQuery.of(context).size.width * 0.435;
 
     return InkWell(
       onTap: () {},
@@ -33,38 +31,34 @@ class _CustomCardState extends State<CustomCard> {
       },
       hoverColor: null,
       child: Container(
-        height: cardSize,
-        child: AspectRatio(
-          aspectRatio: 3 / 2,
-          child: Container(
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: hover ? QuizTheme.primaryColor : QuizTheme.seondaryColor,
-              borderRadius: BorderRadius.all(
-                Radius.circular(cardSize * 0.2),
+        height: cardSize * 0.64,
+        width: cardSize,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: hover ? QuizTheme.primaryColor : QuizTheme.seondaryColor,
+          borderRadius: BorderRadius.all(
+            Radius.circular(cardSize * 0.1),
+          ),
+        ),
+        child: Stack(
+          alignment: AlignmentDirectional.center,
+          children: [
+            Icon(
+              widget.icon,
+              size: cardSize * 0.4,
+              color: hover
+                  ? QuizTheme.primaryColor.withGreen(150)
+                  : Colors.grey.shade400,
+            ),
+            Text(
+              QuizTheme.capitalzed(widget.text),
+              style: TextStyle(
+                color: hover ? Colors.white : null,
+                fontSize: cardSize * 0.13,
+                fontWeight: FontWeight.bold,
               ),
             ),
-            child: Stack(
-              alignment: AlignmentDirectional.center,
-              children: [
-                Icon(
-                  widget.icon,
-                  size: cardSize * 0.7,
-                  color: hover
-                      ? QuizTheme.primaryColor.withGreen(150)
-                      : Colors.grey.shade400,
-                ),
-                Text(
-                  widget.text,
-                  style: TextStyle(
-                    color: hover ? Colors.white : null,
-                    fontSize: cardSize * 0.2,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-          ),
+          ],
         ),
       ),
     );

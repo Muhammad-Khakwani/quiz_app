@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:quiz_app/home_page.dart';
+//import 'package:quiz_app/home_page.dart';
+import 'package:quiz_app/login_page.dart';
 import 'package:quiz_app/theme/quiz_theme.dart';
 
 void main() {
@@ -20,7 +21,7 @@ class QuizApp extends StatelessWidget {
     return MaterialApp(
       title: 'Quiz',
       theme: quizTheme.toThemeData(),
-      home: const HomePage(),
+      home: const LoginPage(),
     );
   }
 }

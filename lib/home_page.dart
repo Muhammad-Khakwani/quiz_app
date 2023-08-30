@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quizy/cutom_widget/custom_button.dart';
 import 'package:quizy/cutom_widget/custom_card.dart';
 import 'package:quizy/cutom_widget/custom_list_tile.dart';
+import 'package:quizy/theme/quiz_theme.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,18 +18,44 @@ class _HomePageState extends State<HomePage> {
     final screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Home"),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: FaIcon(FontAwesomeIcons.house),
+            label: "Main",
+          ),
+          BottomNavigationBarItem(
+            icon: FaIcon(FontAwesomeIcons.calendarDay),
+            label: "Daily Quiz",
+          ),
+          BottomNavigationBarItem(
+            icon: FaIcon(FontAwesomeIcons.chartLine),
+            label: "Statistics",
+          ),
+        ],
       ),
-      drawer: const Drawer(),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(screenSize.width * 0.05),
+            padding: EdgeInsets.symmetric(
+              horizontal: screenSize.width * 0.05,
+            ),
             child: Center(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: FaIcon(
+                          FontAwesomeIcons.gear,
+                          color: QuizTheme.primaryColor,
+                        ),
+                      )
+                    ],
+                  ),
                   CustomListTile(
                     circularImage: AssetImage("assets/avatar.png"),
                     title: "muhammad khan",
@@ -46,19 +74,19 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       CustomCard(
                         text: "online quiz",
-                        icon: Icons.aod_outlined,
+                        icon: FontAwesomeIcons.battleNet,
                       ),
                       CustomCard(
                         text: "1 vs 1 battle",
-                        icon: Icons.aod_outlined,
+                        icon: FontAwesomeIcons.restroom,
                       ),
                       CustomCard(
                         text: "group battle",
-                        icon: Icons.aod_outlined,
+                        icon: FontAwesomeIcons.users,
                       ),
                       CustomCard(
                         text: "random battle",
-                        icon: Icons.aod_outlined,
+                        icon: FontAwesomeIcons.shuffle,
                       ),
                     ],
                   ),
@@ -73,11 +101,11 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       CustomCard(
                         text: "daily quiz",
-                        icon: Icons.aod_outlined,
+                        icon: FontAwesomeIcons.anchor,
                       ),
                       CustomCard(
                         text: "old online test",
-                        icon: Icons.aod_outlined,
+                        icon: FontAwesomeIcons.calendarDays,
                       ),
                     ],
                   ),
@@ -96,7 +124,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       CustomCard(
                         text: "paid contest",
-                        icon: Icons.aod_outlined,
+                        icon: FontAwesomeIcons.magnifyingGlassDollar,
                       ),
                     ],
                   ),

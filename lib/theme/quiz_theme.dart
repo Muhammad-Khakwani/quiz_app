@@ -54,9 +54,9 @@ class QuizTheme {
     return ThemeData(
       useMaterial3: true,
       textTheme: GoogleFonts.robotoCondensedTextTheme(),
-      appBarTheme: const AppBarTheme(
-        backgroundColor: primaryColor,
-        foregroundColor: Colors.white,
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: seondaryColor,
+        selectedItemColor: primaryColor,
       ),
       inputDecorationTheme: InputDecorationTheme(
         errorStyle: const TextStyle(color: errorColor),

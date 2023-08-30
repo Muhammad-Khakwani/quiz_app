@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:quizy/theme/quiz_theme.dart';
 
 class CustomCard extends StatefulWidget {
@@ -43,7 +44,7 @@ class _CustomCardState extends State<CustomCard> {
         child: Stack(
           alignment: AlignmentDirectional.center,
           children: [
-            Icon(
+            FaIcon(
               widget.icon,
               size: cardSize * 0.4,
               color: hover

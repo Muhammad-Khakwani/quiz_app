@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:quizy/home_page.dart';
 import 'package:quizy/login_page.dart';
 import 'package:quizy/theme/quiz_theme.dart';
 
@@ -20,7 +21,8 @@ class QuizApp extends StatelessWidget {
     return MaterialApp(
       title: 'Quizy',
       theme: quizTheme.toThemeData(),
-      home: const LoginPage(),
+      debugShowCheckedModeBanner: false,
+      home: const HomePage(),
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/theme/quiz_theme.dart';
+import 'package:quizy/theme/quiz_theme.dart';
 
 class CustomListTile extends StatelessWidget {
   const CustomListTile({

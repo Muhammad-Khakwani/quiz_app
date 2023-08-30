@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/cutom_widget/custom_button.dart';
-import 'package:quiz_app/cutom_widget/custom_card.dart';
-import 'package:quiz_app/cutom_widget/custom_list_tile.dart';
+import 'package:quizy/cutom_widget/custom_button.dart';
+import 'package:quizy/cutom_widget/custom_card.dart';
+import 'package:quizy/cutom_widget/custom_list_tile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

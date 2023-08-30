@@ -1,10 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:quiz_app/cutom_widget/bulb_icon.dart';
-import 'package:quiz_app/cutom_widget/custom_text_feild.dart';
-import 'package:quiz_app/home_page.dart';
-import 'package:quiz_app/login_page.dart';
-import 'package:quiz_app/theme/quiz_theme.dart';
+import 'package:quizy/cutom_widget/bulb_icon.dart';
+import 'package:quizy/cutom_widget/custom_text_feild.dart';
+import 'package:quizy/home_page.dart';
+import 'package:quizy/login_page.dart';
+import 'package:quizy/theme/quiz_theme.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});

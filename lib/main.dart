@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-//import 'package:quiz_app/home_page.dart';
-import 'package:quiz_app/login_page.dart';
-import 'package:quiz_app/theme/quiz_theme.dart';
+import 'package:quizy/login_page.dart';
+import 'package:quizy/theme/quiz_theme.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +18,7 @@ class QuizApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final quizTheme = QuizTheme();
     return MaterialApp(
-      title: 'Quiz',
+      title: 'Quizy',
       theme: quizTheme.toThemeData(),
       home: const LoginPage(),
     );

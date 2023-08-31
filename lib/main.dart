@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:quizy/home_page.dart';
-import 'package:quizy/login_page.dart';
 import 'package:quizy/theme/quiz_theme.dart';
 
 void main() {

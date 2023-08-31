@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:quizy/cutom_widget/custom_bottom_nav.dart';
 import 'package:quizy/cutom_widget/custom_button.dart';
 import 'package:quizy/cutom_widget/custom_card.dart';
 import 'package:quizy/cutom_widget/custom_list_tile.dart';
@@ -18,21 +19,8 @@ class _HomePageState extends State<HomePage> {
     final screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.house),
-            label: "Main",
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.calendarDay),
-            label: "Daily Quiz",
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.chartLine),
-            label: "Statistics",
-          ),
-        ],
+      bottomNavigationBar: const CustomBottomNav(
+        index: 0,
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -49,18 +37,18 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       IconButton(
                         onPressed: () {},
-                        icon: FaIcon(
+                        icon: const FaIcon(
                           FontAwesomeIcons.gear,
                           color: QuizTheme.primaryColor,
                         ),
                       )
                     ],
                   ),
-                  CustomListTile(
+                  const CustomListTile(
                     circularImage: AssetImage("assets/avatar.png"),
                     title: "muhammad khan",
                   ),
-                  CustomButton(
+                  const CustomButton(
                     text: "start practice",
                   ),
                   const Text(
@@ -71,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                     spacing: screenSize.width * 0.03,
                     runSpacing: screenSize.width * 0.03,
                     runAlignment: WrapAlignment.center,
-                    children: [
+                    children: const [
                       CustomCard(
                         text: "online quiz",
                         icon: FontAwesomeIcons.battleNet,
@@ -98,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                     spacing: screenSize.width * 0.03,
                     runSpacing: screenSize.width * 0.03,
                     runAlignment: WrapAlignment.center,
-                    children: [
+                    children: const [
                       CustomCard(
                         text: "daily quiz",
                         icon: FontAwesomeIcons.anchor,
@@ -117,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                     spacing: screenSize.width * 0.03,
                     runSpacing: screenSize.width * 0.03,
                     runAlignment: WrapAlignment.center,
-                    children: [
+                    children: const [
                       CustomCard(
                         text: "free contest",
                         icon: Icons.aod_outlined,

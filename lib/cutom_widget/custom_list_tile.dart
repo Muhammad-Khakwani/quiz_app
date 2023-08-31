@@ -28,12 +28,12 @@ class CustomListTile extends StatelessWidget {
             backgroundColor: (circularImage == null)
                 ? Colors.deepPurple.withOpacity(0.5)
                 : Colors.deepPurple,
+            radius: screenSize.width * 0.09,
             child: (circularImage == null)
                 ? Text(
                     QuizTheme.initials(title),
                   )
                 : null,
-            radius: screenSize.width * 0.09,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
